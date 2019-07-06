@@ -1,0 +1,584 @@
+{
+  "modules": [
+    {
+      "name": "user",
+      "chnname": "用户",
+      "entities": [
+        {
+          "title": "user_info",
+          "chnname": "用户信息表",
+          "fields": [
+            {
+              "name": "user_id",
+              "type": "INT_10",
+              "chnname": "用户唯一id 自增长id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "nickname",
+              "type": "VARCHAR_32",
+              "chnname": "昵称",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "username",
+              "type": "VARCHAR_32",
+              "chnname": "用户名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "password",
+              "type": "VARCHAR_32",
+              "chnname": "密码(MD5加密)",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "email",
+              "type": "VARCHAR_32",
+              "chnname": "邮箱",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "birthday",
+              "type": "DATE",
+              "chnname": "生日",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "constellation",
+              "type": "VARCHAR_32",
+              "chnname": "星座",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "avatar_url",
+              "type": "VARCHAR_32",
+              "chnname": "头像路径",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "tele",
+              "type": "VARCHAR_32",
+              "chnname": "手机号码",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "user_follow",
+          "chnname": "用户关注表",
+          "fields": [
+            {
+              "name": "created_time",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "user_id",
+              "type": "INT_10",
+              "chnname": "用户id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "跟随的id",
+              "type": "INT_10",
+              "chnname": "follow_id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "graphCanvas": {
+        "nodes": [
+          {
+            "shape": "table",
+            "title": "article",
+            "moduleName": "article",
+            "x": 570,
+            "y": 210,
+            "id": "637234de"
+          },
+          {
+            "shape": "table",
+            "title": "user_follow",
+            "moduleName": false,
+            "x": 550,
+            "y": 70,
+            "id": "237cb570"
+          },
+          {
+            "shape": "table",
+            "title": "user_info",
+            "moduleName": false,
+            "x": 210,
+            "y": 120,
+            "id": "e05e2554"
+          },
+          {
+            "shape": "table",
+            "title": "article_tag",
+            "moduleName": "article",
+            "x": 850,
+            "y": 200,
+            "id": "3a200500"
+          },
+          {
+            "shape": "table",
+            "title": "tag",
+            "moduleName": "article",
+            "x": 1100,
+            "y": 190,
+            "id": "8380a899"
+          },
+          {
+            "shape": "table",
+            "title": "reply",
+            "moduleName": "article",
+            "x": 1050,
+            "y": 350,
+            "id": "e9d04bc1"
+          },
+          {
+            "shape": "table",
+            "title": "comment",
+            "moduleName": "article",
+            "x": 600,
+            "y": 450,
+            "id": "a0303a2a"
+          }
+        ],
+        "edges": [
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "237cb570",
+            "target": "e05e2554",
+            "id": "c008d5c7",
+            "controlPoints": [
+              {
+                "x": 424.140625,
+                "y": 82.63888888888889
+              },
+              {
+                "x": 358.0302734375,
+                "y": 40.41059957173447
+              }
+            ],
+            "sourceAnchor": 2,
+            "targetAnchor": 1
+          },
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "637234de",
+            "target": "e05e2554",
+            "id": "94094e63",
+            "controlPoints": [
+              {
+                "x": 433.544921875,
+                "y": 202.44230769230768
+              },
+              {
+                "x": 358.0302734375,
+                "y": 40.41059957173447
+              }
+            ],
+            "sourceAnchor": 2,
+            "targetAnchor": 1
+          },
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "3a200500",
+            "target": "637234de",
+            "id": "35606425",
+            "controlPoints": [
+              {
+                "x": 744.2958984375,
+                "y": 202.53571428571428
+              },
+              {
+                "x": 706.455078125,
+                "y": 182.28846153846155
+              }
+            ],
+            "sourceAnchor": 0,
+            "targetAnchor": 1
+          },
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "e9d04bc1",
+            "target": "a0303a2a",
+            "id": "585f91dd",
+            "controlPoints": [
+              {
+                "x": 920.96484375,
+                "y": 372.70454545454544
+              },
+              {
+                "x": 751.1240234375,
+                "y": 422.28846153846155
+              }
+            ],
+            "sourceAnchor": 4,
+            "targetAnchor": 1
+          },
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "a0303a2a",
+            "target": "e05e2554",
+            "id": "44a5810b",
+            "controlPoints": [
+              {
+                "x": 448.8759765625,
+                "y": 482.75
+              },
+              {
+                "x": 358.0302734375,
+                "y": 40.41059957173447
+              }
+            ],
+            "sourceAnchor": 6,
+            "targetAnchor": 1
+          },
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "a0303a2a",
+            "target": "637234de",
+            "id": "67fc6402",
+            "controlPoints": [
+              {
+                "x": 751.1240234375,
+                "y": 502.9038461538462
+              },
+              {
+                "x": 706.455078125,
+                "y": 182.28846153846155
+              }
+            ],
+            "sourceAnchor": 9,
+            "targetAnchor": 1
+          },
+          {
+            "shape": "erdRelation",
+            "relation": "0,n:1",
+            "source": "3a200500",
+            "target": "8380a899",
+            "id": "fa24e0e2",
+            "controlPoints": [
+              {
+                "x": 955.7041015625,
+                "y": 216.22857142857143
+              },
+              {
+                "x": 1004.8017578125,
+                "y": 192.53571428571428
+              }
+            ],
+            "sourceAnchor": 3,
+            "targetAnchor": 0
+          }
+        ]
+      },
+      "associations": [
+        {
+          "relation": "0,n:1",
+          "from": {
+            "entity": "user_follow",
+            "field": "user_id"
+          },
+          "to": {
+            "entity": "user_info",
+            "field": "user_id"
+          }
+        }
+      ]
+    },
+    {
+      "name": "article",
+      "chnname": "文章模块",
+      "entities": [
+        {
+          "title": "comment",
+          "chnname": "评论表",
+          "fields": [
+            {
+              "name": "comment_id",
+              "type": "INT_10",
+              "chnname": "唯一id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "comment_content",
+              "type": "VARCHAR_3072",
+              "chnname": "评论内容",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "created_time",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "user_id",
+              "type": "INT_10",
+              "chnname": "评论人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "article_id",
+              "type": "INT_10",
+              "chnname": "评论文章的id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "reply",
+          "chnname": "回复表",
+          "fields": [
+            {
+              "name": "reply_id",
+              "type": "VARCHAR_32",
+              "chnname": "唯一id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "created_time",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "comment_id",
+              "type": "INT_10",
+              "chnname": "评论id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "reply_content",
+              "type": "VARCHAR_1024",
+              "chnname": "回复内容",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "tag",
+          "chnname": "标签表",
+          "fields": [
+            {
+              "name": "tag_id",
+              "type": "INT_10",
+              "chnname": "",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "tag_name",
+              "type": "VARCHAR_32",
+              "chnname": "",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "article_tag",
+          "chnname": "文章标签对应表",
+          "fields": [
+            {
+              "name": "article_id",
+              "type": "INT_10",
+              "chnname": "",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "tag_id",
+              "type": "INT_10",
+              "chnname": "",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "title": "article",
+          "chnname": "文章表",
+          "fields": [
+            {
+              "name": "article_id",
+              "type": "INT_10",
+              "chnname": "唯一id",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "user_id",
+              "type": "INT_10",
+              "chnname": "发表人的id",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "article_title",
+              "type": "VARCHAR_32",
+              "chnname": "名称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "article_content",
+              "type": "TEXT",
+              "chnname": "文章内容",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "graphCanvas": {
+        "nodes": [],
+        "edges": []
+      },
+      "associations": []
+    }
+  ],
+  "version": "v0.0.1",
+  "message": "初始化当前版本",
+  "date": "2019/7/4 17:28:58"
+}

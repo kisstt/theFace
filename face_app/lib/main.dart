@@ -1,11 +1,8 @@
-import 'package:face_app/study/search_demo.dart';
+
+import 'package:face_app/pages/message_page.dart';
 import 'package:flutter/material.dart';
 import 'bottom_navigation_widget.dart';
-import 'package:face_app/pages/login_page.dart';
 import 'dart:io';
-import 'package:face_app/study/BottomAppBarDemo.dart';
-
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -15,7 +12,11 @@ class MyApp extends StatelessWidget {
         title: '人脸相面App',
         theme: ThemeData(primarySwatch: Colors.red),
         debugShowCheckedModeBanner: false,
-        home: SearchBarDemo());
+        home: ButtomNavigationWidget(),
+        routes:<String,WidgetBuilder>{
+          '/home':(BuildContext context)=>ButtomNavigationWidget()
+        }
+      );
   }
 }
 

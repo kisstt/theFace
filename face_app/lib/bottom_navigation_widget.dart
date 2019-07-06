@@ -1,3 +1,4 @@
+import 'package:face_app/pages/message_page.dart';
 import 'package:flutter/material.dart';
 import 'pages/home_screen.dart';
 import 'pages/pages_screen.dart';
@@ -17,7 +18,7 @@ class _ButtomNavigationWidgetState extends State<ButtomNavigationWidget> {
   @override
   void initState() {
     list
-      ..add(HomeScreen())
+      ..add(MessageWidget())
       ..add(EmailScreen())
       ..add(PageScreen())
       ..add(AboutmeScreen());
@@ -30,16 +31,7 @@ class _ButtomNavigationWidgetState extends State<ButtomNavigationWidget> {
       body: list[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: _ButtomNavigationColor,
-            ),
-            title: Text(
-              '首页',
-              style: TextStyle(color: _ButtomNavigationColor),
-            )
-          ),
+         
             BottomNavigationBarItem(
             icon: Icon(
               Icons.email,
@@ -49,7 +41,16 @@ class _ButtomNavigationWidgetState extends State<ButtomNavigationWidget> {
               '消息',
               style: TextStyle(color: _ButtomNavigationColor),
             )
-          ), BottomNavigationBarItem(
+          ),  BottomNavigationBarItem(
+            icon: Icon(
+              Icons.contact_mail,
+              color: _ButtomNavigationColor,
+            ),
+            title: Text(
+              '通讯录',
+              style: TextStyle(color: _ButtomNavigationColor),
+            )
+          ),BottomNavigationBarItem(
             icon: Icon(
               Icons.pages,
               color: _ButtomNavigationColor,

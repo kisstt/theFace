@@ -1,5 +1,5 @@
 # theFace（未完成）
-相面，人脸算命应用
+基于flutter和SpringBoot的App，相面，人脸算命应用
 
 ### 一、项目说明
 
@@ -11,7 +11,7 @@
 
 springBoot
 
-Mybatis
+Mybatis  逆向工程
 
 （2）移动前端框架 
 
@@ -34,3 +34,20 @@ Flutter
 ### 二、项目组成员：
 
 [LeeSamoyed](<https://github.com/LeeSamoyed >)，[greenPaoPao](<https://github.com/greenPaoPao>)
+
+
+
+
+
+### 三、接口说明
+
+基础url:  http://localhost:8015
+
+| 接口路径 | 传递                | 返回         |
+| -------- | ------------------- | ------------ |
+| /login   | {nickname,password} | {status,msg} |
+|          |                     |              |
+|          |                     |              |
+
+
+
