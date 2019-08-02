@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.face.dao.IStarDao">
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insert"  keyProperty="starId" useGeneratedKeys="true"  parameterType="com.face.po.StarPo">
+		 INSERT INTO star
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="starId != null">
+				 star_id,
+			</if>
+			<if test="constellation != null">
+				 constellation,
+			</if>
+			<if test="time != null">
+				 time,
+			</if>
+			<if test="element != null">
+				 element,
+			</if>
+			<if test="createdTime != null">
+				 created_time,
+			</if>
+			<if test="description != null">
+				 description,
+			</if>
+
+		 </trim>
+		 <trim prefix="VALUES (" suffix=")" suffixOverrides="," >
+			<if test="starId !=null">
+				 #{starId},
+			</if>
+			<if test="constellation !=null">
+				 #{constellation},
+			</if>
+			<if test="time !=null">
+				 #{time},
+			</if>
+			<if test="element !=null">
+				 #{element},
+			</if>
+			<if test="createdTime !=null">
+				 #{createdTime},
+			</if>
+			<if test="description !=null">
+				 #{description},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改-->
+	<update id="update" parameterType="com.face.po.StarPo">
+		 UPDATE star
+		 <trim prefix="set"  suffixOverrides="," >
+			<if test="constellation != null">
+				 constellation = #{constellation},
+			</if>
+			<if test="time != null">
+				 time = #{time},
+			</if>
+			<if test="element != null">
+				 element = #{element},
+			</if>
+			<if test="createdTime != null">
+				 created_time = #{createdTime},
+			</if>
+			<if test="description != null">
+				 description = #{description},
+			</if>
+
+		 </trim>
+		 <where> 
+		 <trim prefixOverrides="and" >
+				 and star_id = #{starId} 
+		 </trim>
+		 </where> 
+	</update>
+
+	<!-- 查询 -->
+	<select id="list" parameterType="com.face.po.StarPo" resultType="com.face.po.StarPo" > 
+		 SELECT
+		 star_id, constellation, time, element, created_time, description
+		 FROM star
+		<trim prefix="where" prefixOverrides="and" >
+			<if test="starId != null ">
+				 and star_id = #{starId} 
+			</if>
+			<if test="constellation != null and constellation != ''">
+				 and constellation = #{constellation} 
+			</if>
+			<if test="time != null and time != ''">
+				 and time = #{time} 
+			</if>
+			<if test="element != null and element != ''">
+				 and element = #{element} 
+			</if>
+			<if test="createdTime != null ">
+				 and created_time = #{createdTime} 
+			</if>
+			<if test="description != null and description != ''">
+				 and description = #{description} 
+			</if>
+
+		</trim>
+	</select>
+	 <!-- 新增的业务请写在下面，防止重新生成后被覆盖-->
+
+
+	<select id="qryStarByPage" parameterType="com.face.po.StarPo" resultType="com.face.po.StarPo">
+		SELECT
+		star_id, constellation, time, element, created_time, description
+		FROM star
+		<trim prefix="where" prefixOverrides="and" >
+			<if test="starId != null ">
+				and star_id = #{starId}
+			</if>
+			<if test="constellation != null and constellation != ''">
+				and constellation = #{constellation}
+			</if>
+			<if test="time != null and time != ''">
+				and time = #{time}
+			</if>
+			<if test="element != null and element != ''">
+				and element = #{element}
+			</if>
+			<if test="createdTime != null ">
+				and created_time = #{createdTime}
+			</if>
+			<if test="description != null and description != ''">
+				and description = #{description}
+			</if>
+		</trim>
+	</select>
+</mapper>

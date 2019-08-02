@@ -1,16 +1,18 @@
 package com.face.service;
 
-import com.face.po.User;
+
+import com.chat.netty.chat.ChatInfo;
+import com.face.vo.UserVo;
 
 public interface IUserService {
 
-    boolean isExistUser(User user);
+    boolean isExistUser(UserVo user);
 
-    User findUserByNickname(String nickname);
+    UserVo findUserByNickname(String nickname);
 
-    int addUser(User user);
+    int addUser(UserVo user);
 
-    User qryUser(User user);
+    UserVo qryUser(UserVo user);
 
-    int updateUser(User user);
+    int updateUser(UserVo user);
 }

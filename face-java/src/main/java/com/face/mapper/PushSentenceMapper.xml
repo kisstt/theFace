@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.face.dao.IPushSentenceDao">
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insert"  keyProperty="pSentenceId" useGeneratedKeys="true"  parameterType="com.face.po.PushSentencePo">
+		 INSERT INTO push_sentence
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="pSentenceId != null">
+				 p_sentence_id,
+			</if>
+			<if test="createdTime != null">
+				 created_time,
+			</if>
+			<if test="pushTime != null">
+				 push_time,
+			</if>
+			<if test="sentence != null">
+				 sentence,
+			</if>
+
+		 </trim>
+		 <trim prefix="VALUES (" suffix=")" suffixOverrides="," >
+			<if test="pSentenceId !=null">
+				 #{pSentenceId},
+			</if>
+			<if test="createdTime !=null">
+				 #{createdTime},
+			</if>
+			<if test="pushTime !=null">
+				 #{pushTime},
+			</if>
+			<if test="sentence !=null">
+				 #{sentence},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改-->
+	<update id="update" parameterType="com.face.po.PushSentencePo">
+		 UPDATE push_sentence
+		 <trim prefix="set"  suffixOverrides="," >
+			<if test="createdTime != null">
+				 created_time = #{createdTime},
+			</if>
+			<if test="pushTime != null">
+				 push_time = #{pushTime},
+			</if>
+			<if test="sentence != null">
+				 sentence = #{sentence},
+			</if>
+
+		 </trim>
+		 <where> 
+		 <trim prefixOverrides="and" >
+				 and p_sentence_id = #{pSentenceId} 
+		 </trim>
+		 </where> 
+	</update>
+
+	<!-- 查询 -->
+	<select id="list" parameterType="com.face.po.PushSentencePo" resultType="com.face.po.PushSentencePo" > 
+		 SELECT
+		 p_sentence_id, created_time, push_time, sentence
+		 FROM push_sentence
+		<trim prefix="where" prefixOverrides="and" >
+			<if test="pSentenceId != null ">
+				 and p_sentence_id = #{pSentenceId} 
+			</if>
+			<if test="createdTime != null ">
+				 and created_time = #{createdTime} 
+			</if>
+			<if test="pushTime != null and pushTime != ''">
+				 and push_time = #{pushTime} 
+			</if>
+			<if test="sentence != null and sentence != ''">
+				 and sentence = #{sentence} 
+			</if>
+
+		</trim>
+	</select>
+	 <!-- 新增的业务请写在下面，防止重新生成后被覆盖-->
+
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.face.dao.IUserFollowDao">
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insert"  parameterType="com.face.po.UserFollowPo">
+		 INSERT INTO user_follow
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="createdTime != null">
+				 created_time,
+			</if>
+			<if test="userId != null">
+				 user_id,
+			</if>
+			<if test="followId != null">
+				 follow_id,
+			</if>
+
+		 </trim>
+		 <trim prefix="VALUES (" suffix=")" suffixOverrides="," >
+			<if test="createdTime !=null">
+				 #{createdTime},
+			</if>
+			<if test="userId !=null">
+				 #{userId},
+			</if>
+			<if test="followId !=null">
+				 #{followId},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 查询 -->
+	<select id="list" parameterType="com.face.po.UserFollowPo" resultType="com.face.po.UserFollowPo" > 
+		 SELECT
+		 created_time, user_id, follow_id
+		 FROM user_follow
+		<trim prefix="where" prefixOverrides="and" >
+			<if test="createdTime != null ">
+				 and created_time = #{createdTime} 
+			</if>
+			<if test="userId != null ">
+				 and user_id = #{userId} 
+			</if>
+			<if test="followId != null ">
+				 and follow_id = #{followId} 
+			</if>
+
+		</trim>
+	</select>
+	 <!-- 新增的业务请写在下面，防止重新生成后被覆盖-->
+
+</mapper>

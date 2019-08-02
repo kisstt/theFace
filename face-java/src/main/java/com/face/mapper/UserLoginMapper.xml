@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.face.dao.IUserLoginDao">
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insert"  keyProperty="userLoginId" useGeneratedKeys="true"  parameterType="com.face.po.UserLoginPo">
+		 INSERT INTO user_login
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="userLoginId != null">
+				 user_login_id,
+			</if>
+			<if test="createdTime != null">
+				 created_time,
+			</if>
+			<if test="userLoginIp != null">
+				 user_login_ip,
+			</if>
+			<if test="userLoginDevice != null">
+				 user_login_device,
+			</if>
+			<if test="userLoginMac != null">
+				 user_login_mac,
+			</if>
+
+		 </trim>
+		 <trim prefix="VALUES (" suffix=")" suffixOverrides="," >
+			<if test="userLoginId !=null">
+				 #{userLoginId},
+			</if>
+			<if test="createdTime !=null">
+				 #{createdTime},
+			</if>
+			<if test="userLoginIp !=null">
+				 #{userLoginIp},
+			</if>
+			<if test="userLoginDevice !=null">
+				 #{userLoginDevice},
+			</if>
+			<if test="userLoginMac !=null">
+				 #{userLoginMac},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改-->
+	<update id="update" parameterType="com.face.po.UserLoginPo">
+		 UPDATE user_login
+		 <trim prefix="set"  suffixOverrides="," >
+			<if test="createdTime != null">
+				 created_time = #{createdTime},
+			</if>
+			<if test="userLoginIp != null">
+				 user_login_ip = #{userLoginIp},
+			</if>
+			<if test="userLoginDevice != null">
+				 user_login_device = #{userLoginDevice},
+			</if>
+			<if test="userLoginMac != null">
+				 user_login_mac = #{userLoginMac},
+			</if>
+
+		 </trim>
+		 <where> 
+		 <trim prefixOverrides="and" >
+				 and user_login_id = #{userLoginId} 
+		 </trim>
+		 </where> 
+	</update>
+
+	<!-- 查询 -->
+	<select id="list" parameterType="com.face.po.UserLoginPo" resultType="com.face.po.UserLoginPo" > 
+		 SELECT
+		 user_login_id, created_time, user_login_ip, user_login_device, user_login_mac
+		 FROM user_login
+		<trim prefix="where" prefixOverrides="and" >
+			<if test="userLoginId != null ">
+				 and user_login_id = #{userLoginId} 
+			</if>
+			<if test="createdTime != null ">
+				 and created_time = #{createdTime} 
+			</if>
+			<if test="userLoginIp != null and userLoginIp != ''">
+				 and user_login_ip = #{userLoginIp} 
+			</if>
+			<if test="userLoginDevice != null and userLoginDevice != ''">
+				 and user_login_device = #{userLoginDevice} 
+			</if>
+			<if test="userLoginMac != null and userLoginMac != ''">
+				 and user_login_mac = #{userLoginMac} 
+			</if>
+
+		</trim>
+	</select>
+	 <!-- 新增的业务请写在下面，防止重新生成后被覆盖-->
+
+</mapper>
