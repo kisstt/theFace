@@ -1,5 +1,12 @@
 //package com.face.generator;
 //
+/**
+ * mybatis-plus的代码生成器
+ *
+ *
+ */
+
+
 //import com.baomidou.mybatisplus.core.toolkit.StringPool;
 //import com.baomidou.mybatisplus.generator.AutoGenerator;
 //import com.baomidou.mybatisplus.generator.InjectionConfig;

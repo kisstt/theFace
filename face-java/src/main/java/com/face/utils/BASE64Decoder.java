@@ -7,9 +7,6 @@ import java.util.Arrays;
 /**
  * BASE解码器
  *
- * @author 欧阳先伟
- * @version 0.1.4, 2008/12/12
- * @since Common 0.1
  */
 public class BASE64Decoder {
     /**

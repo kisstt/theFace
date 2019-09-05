@@ -18,7 +18,7 @@ public class UserLoginPo implements Serializable {
 	/**
 	*主键
 	*/
-	private Integer userLoginId;
+	private Long userLoginId;
 
 	/**
 	*创建时间

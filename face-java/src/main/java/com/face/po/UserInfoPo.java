@@ -18,7 +18,7 @@ public class UserInfoPo implements Serializable {
 	/**
 	*用户唯一id 自增长id
 	*/
-	private Integer userId;
+	private Long userId;
 
 	/**
 	*昵称

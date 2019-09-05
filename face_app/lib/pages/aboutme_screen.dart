@@ -43,20 +43,21 @@ class _AboutmeScreenState extends State<AboutmeScreen> {
         ),
         body: ListView(
           children: <Widget>[
-            buildAvator(user)
-          ,new Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                child: Icon(Icons.ac_unit),
-                height: 50.0,
-                width: 50.0,
-                decoration: BoxDecoration(
-                  border:  Border.all(color: Colors.grey),
-                ),    
-              )
-            ],
-          ),
+            buildAvator(user),
+            new Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  child: Icon(Icons.ac_unit),
+                  height: 50.0,
+                  width: 50.0,
+                  decoration:
+                    BoxDecoration(
+                      border:  Border.all(color: Colors.grey),
+                    ),
+                )
+              ],
+            ),
           ]
         ));
   }

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.face.dao.IUserInfoDao">
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insert"  keyProperty="userId" useGeneratedKeys="true"  parameterType="com.face.po.UserInfoPo">
+		 INSERT INTO user_info
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="userId != null">
+				 user_id,
+			</if>
+			<if test="nickname != null">
+				 nickname,
+			</if>
+			<if test="username != null">
+				 username,
+			</if>
+			<if test="password != null">
+				 password,
+			</if>
+			<if test="email != null">
+				 email,
+			</if>
+			<if test="birthday != null">
+				 birthday,
+			</if>
+			<if test="createTime != null">
+				 create_time,
+			</if>
+			<if test="constellation != null">
+				 constellation,
+			</if>
+			<if test="avatarUrl != null">
+				 avatar_url,
+			</if>
+			<if test="tele != null">
+				 tele,
+			</if>
+
+		 </trim>
+		 <trim prefix="VALUES (" suffix=")" suffixOverrides="," >
+			<if test="userId !=null">
+				 #{userId},
+			</if>
+			<if test="nickname !=null">
+				 #{nickname},
+			</if>
+			<if test="username !=null">
+				 #{username},
+			</if>
+			<if test="password !=null">
+				 #{password},
+			</if>
+			<if test="email !=null">
+				 #{email},
+			</if>
+			<if test="birthday !=null">
+				 #{birthday},
+			</if>
+			<if test="createTime !=null">
+				 #{createTime},
+			</if>
+			<if test="constellation !=null">
+				 #{constellation},
+			</if>
+			<if test="avatarUrl !=null">
+				 #{avatarUrl},
+			</if>
+			<if test="tele !=null">
+				 #{tele},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改-->
+	<update id="update" parameterType="com.face.po.UserInfoPo">
+		 UPDATE user_info
+		 <trim prefix="set"  suffixOverrides="," >
+			<if test="nickname != null">
+				 nickname = #{nickname},
+			</if>
+			<if test="username != null">
+				 username = #{username},
+			</if>
+			<if test="password != null">
+				 password = #{password},
+			</if>
+			<if test="email != null">
+				 email = #{email},
+			</if>
+			<if test="birthday != null">
+				 birthday = #{birthday},
+			</if>
+			<if test="createTime != null">
+				 create_time = #{createTime},
+			</if>
+			<if test="constellation != null">
+				 constellation = #{constellation},
+			</if>
+			<if test="avatarUrl != null">
+				 avatar_url = #{avatarUrl},
+			</if>
+			<if test="tele != null">
+				 tele = #{tele},
+			</if>
+
+		 </trim>
+		 <where> 
+		 <trim prefixOverrides="and" >
+				 and user_id = #{userId} 
+				 and nickname = #{nickname} 
+				 and email = #{email} 
+				 and tele = #{tele} 
+		 </trim>
+		 </where> 
+	</update>
+
+	<!-- 查询 -->
+	<select id="list" parameterType="com.face.po.UserInfoPo" resultType="com.face.po.UserInfoPo" > 
+		 SELECT
+		 user_id, nickname, username, password, email, birthday, create_time, constellation, avatar_url, tele
+		 FROM user_info
+		<trim prefix="where" prefixOverrides="and" >
+			<if test="userId != null ">
+				 and user_id = #{userId} 
+			</if>
+			<if test="nickname != null and nickname != ''">
+				 and nickname = #{nickname} 
+			</if>
+			<if test="username != null and username != ''">
+				 and username = #{username} 
+			</if>
+			<if test="password != null and password != ''">
+				 and password = #{password} 
+			</if>
+			<if test="email != null and email != ''">
+				 and email = #{email} 
+			</if>
+			<if test="birthday != null and birthday != ''">
+				 and birthday = #{birthday} 
+			</if>
+			<if test="createTime != null ">
+				 and create_time = #{createTime} 
+			</if>
+			<if test="constellation != null and constellation != ''">
+				 and constellation = #{constellation} 
+			</if>
+			<if test="avatarUrl != null and avatarUrl != ''">
+				 and avatar_url = #{avatarUrl} 
+			</if>
+			<if test="tele != null and tele != ''">
+				 and tele = #{tele} 
+			</if>
+
+		</trim>
+	</select>
+	 <!-- 新增的业务请写在下面，防止重新生成后被覆盖-->
+
+</mapper>

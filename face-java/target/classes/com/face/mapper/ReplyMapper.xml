@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.face.dao.IReplyDao">
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insert"  parameterType="com.face.po.ReplyPo">
+		 INSERT INTO reply
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="replyId != null">
+				 reply_id,
+			</if>
+			<if test="createdTime != null">
+				 created_time,
+			</if>
+			<if test="commentId != null">
+				 comment_id,
+			</if>
+			<if test="replyContent != null">
+				 reply_content,
+			</if>
+
+		 </trim>
+		 <trim prefix="VALUES (" suffix=")" suffixOverrides="," >
+			<if test="replyId !=null">
+				 #{replyId},
+			</if>
+			<if test="createdTime !=null">
+				 #{createdTime},
+			</if>
+			<if test="commentId !=null">
+				 #{commentId},
+			</if>
+			<if test="replyContent !=null">
+				 #{replyContent},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改-->
+	<update id="update" parameterType="com.face.po.ReplyPo">
+		 UPDATE reply
+		 <trim prefix="set"  suffixOverrides="," >
+			<if test="replyId != null">
+				 reply_id = #{replyId},
+			</if>
+			<if test="createdTime != null">
+				 created_time = #{createdTime},
+			</if>
+			<if test="commentId != null">
+				 comment_id = #{commentId},
+			</if>
+			<if test="replyContent != null">
+				 reply_content = #{replyContent},
+			</if>
+
+		 </trim>
+		 <where> 
+		 <trim prefixOverrides="and" >
+				 and reply_id = #{replyId} 
+		 </trim>
+		 </where> 
+	</update>
+
+	<!-- 查询 -->
+	<select id="list" parameterType="com.face.po.ReplyPo" resultType="com.face.po.ReplyPo" > 
+		 SELECT
+		 reply_id, created_time, comment_id, reply_content
+		 FROM reply
+		<trim prefix="where" prefixOverrides="and" >
+			<if test="replyId != null ">
+				 and reply_id = #{replyId} 
+			</if>
+			<if test="createdTime != null ">
+				 and created_time = #{createdTime} 
+			</if>
+			<if test="commentId != null ">
+				 and comment_id = #{commentId} 
+			</if>
+			<if test="replyContent != null and replyContent != ''">
+				 and reply_content = #{replyContent} 
+			</if>
+
+		</trim>
+	</select>
+	 <!-- 新增的业务请写在下面，防止重新生成后被覆盖-->
+
+</mapper>

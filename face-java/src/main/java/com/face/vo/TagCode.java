@@ -1,5 +1,8 @@
 package com.face.vo;
 
+/**
+ * 句子,文章的类型
+ */
 public class TagCode {
     //每日句子
     int DAILY_SENTENCE=1;

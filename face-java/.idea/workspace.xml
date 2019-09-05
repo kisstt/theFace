@@ -5,107 +5,84 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39bfc0ab-c7a4-48b9-95a2-ade0b9cb7a44" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/face-java.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/msg.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/im/ExecutorServiceFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/im/IMSClientFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/im/IMSConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/im/MsgDispatcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/im/NettyServerDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/im/interf/IMSClientInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/im/listener/IMSConnectStatusCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/im/listener/OnEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/im/netty/NettyTcpClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/ChatInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/ChatClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/ChatClientChannelInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/command/AbstractCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/command/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/command/LoginCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/command/SingleChatCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/handler/CreateGroupResponseHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/handler/LoginResponseHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/handler/SingleChatHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/common/Constant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/ChatServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/ChatServerChannelInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/handler/AuthHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/handler/CreateGroupRequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/handler/GroupChatHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/handler/JoinGroupRequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/handler/LoginRequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/handler/SingleChatHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/util/SessionUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/util/StringUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/netty/NettyClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/netty/NettyClientHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/netty/NettyServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/netty/NettySeverHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/nio/NioClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/nio/NioServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/oio/OioServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chat/netty/oio/OioServerHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/face/generator/CodeGeneratorMybatisPlus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/face/spider/star/SpiderApplication.java" afterDir="false" />
+    <list default="true" id="39bfc0ab-c7a4-48b9-95a2-ade0b9cb7a44" name="Default Changelist" comment="后端日志系统，分页插件，dao自动生成器">
       <change beforePath="$PROJECT_DIR$/../doc/dbDesign.pdman.json" beforeDir="false" afterPath="$PROJECT_DIR$/../doc/dbDesign.pdman.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config/application-dev.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.face.po/com/face/po/dao/IArticleDao.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/config/application-generate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config/application-generate.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log.2019-06-21.0.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log.2019-06-22.0.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/application.log.2019-07-04.0.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/ExecutorServiceFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/HeartbeatHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/HeartbeatRespHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/IMSClientFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/IMSConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/LoginAuthRespHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/MsgDispatcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/MsgTimeoutTimer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/MsgTimeoutTimerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/NettyServerDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/interf/IMSClientInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/listener/IMSConnectStatusCallback.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/listener/OnEventListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/netty/NettyTcpClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/netty/TCPChannelInitializerHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/netty/TCPReadHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/im/protobuf/MessageProtobuf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/ChatInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/ChatClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/ChatClientChannelInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/command/AbstractCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/command/Command.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/command/LoginCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/command/SingleChatCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/handler/CreateGroupResponseHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/handler/LoginResponseHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/client/handler/SingleChatHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/common/Constant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/ChatServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/ChatServerChannelInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/handler/AuthHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/handler/CreateGroupRequestHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/handler/GroupChatHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/handler/JoinGroupRequestHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/handler/LoginRequestHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/handler/SingleChatHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/server/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/util/SessionUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/chat/util/StringUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/netty/NettyClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/netty/NettyClientHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/netty/NettyServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/netty/NettySeverHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/nio/NioClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/nio/NioServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/oio/OioServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chat/netty/oio/OioServerHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/face/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/face/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/face/config/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/config/MybatisPlusConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/face/config/MybatisPlusConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/config/UploadConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/face/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/face/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/generator/CodeGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/mapper/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/po/Star.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/po/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/generator/CodeGeneratorMybatisPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/face/generator/CodeGeneratorMybatisPlus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/po/UserInfoPo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/face/po/UserInfoPo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/po/UserLoginPo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/face/po/UserLoginPo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/face/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/face/service/IUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/face/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/face/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/utils/BASE64Decoder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/utils/BASE64Encoder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/utils/Constants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/utils/DESUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/utils/DateUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/utils/HexStringUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/utils/MD5Utils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/vo/BaseMsg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/vo/ErrorMsg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/vo/SuccessMsg.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/utils/BASE64Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/face/utils/BASE64Decoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/face/vo/TagCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/face/vo/TagCode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/face/vo/UserVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/face/vo/UserVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spider/star/SpiderApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/face/SampleTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/META-INF/face-java.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/face-java.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-dev.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application-generate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-generate.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/face/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/face/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/face/config/CorsConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/face/config/CorsConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/face/config/MybatisPlusConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/face/config/UploadConfig.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/face/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/face/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/face/generator/CodeGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/face/mapper/UserMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/face/po/Star.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/face/po/User.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/face/service/IUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/face/service/IUserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/face/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/face/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/face/utils/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/face/utils/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/face/utils/DateUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/face/utils/DateUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/face/vo/BaseMsg.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/face/vo/ErrorMsg.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/face/vo/SuccessMsg.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/face/utils/BASE64Decoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/face/utils/BASE64Decoder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/face/vo/UserVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/face/vo/UserVo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/spider/star/SpiderApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/face/SampleTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../face_app/lib/pages/aboutme_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../face_app/lib/pages/aboutme_screen.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -143,6 +120,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="1.8" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1OXmS9XCXcv4g2LKuaLhHPyaYNI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -160,7 +145,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/face/db" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -177,11 +162,11 @@
       <recent name="G:\app\github\theFace\face-java\src\main\java\com\common\generator\mysql" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.face.advice" />
+      <recent name="com.face.im" />
       <recent name="com.face.exception" />
       <recent name="com.face.controller.aspect" />
       <recent name="com.face.page" />
-      <recent name="com.face.db.plugin" />
-      <recent name="com.face.config" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\app\github\theFace\face-java\src\main\java\com\face\mapper" />
@@ -200,20 +185,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
+  <component name="RunManager" selected="Spring Boot.GeneratorApplication">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NettyServerDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.chat.im.NettyServerDemo" />
+    <configuration name="AfterAdvice" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.face.advice.AfterAdvice" />
       <module name="face-java" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.chat.im.*" />
+          <option name="PATTERN" value="com.face.advice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -221,13 +206,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpiderDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.face.spider.star.SpiderDemo" />
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.face.page.Main" />
       <module name="face-java" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.face.spider.star.*" />
+          <option name="PATTERN" value="com.face.page.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.face.vo.Main" />
+      <module name="face-java" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.face.vo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -241,22 +240,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+    <configuration name="demo2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.face.advice.demo2" />
+      <module name="face-java" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.face.advice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="face-java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.face.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.face.Application" />
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -270,19 +270,6 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.face.generator.GeneratorApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SpiderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="face-java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.face.spider.star.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.face.spider.star.SpiderApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -307,11 +294,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.Application" />
-        <item itemvalue="Spring Boot.SpiderApplication" />
         <item itemvalue="Spring Boot.GeneratorApplication" />
-        <item itemvalue="Application.SpiderDemo" />
-        <item itemvalue="Application.NettyServerDemo" />
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.AfterAdvice" />
+        <item itemvalue="Application.demo2" />
       </list>
     </recent_temporary>
   </component>
@@ -357,7 +344,49 @@
       <workItem from="1564626198476" duration="802000" />
       <workItem from="1564654374017" duration="597000" />
       <workItem from="1564668115700" duration="922000" />
+      <workItem from="1564707706891" duration="8532000" />
+      <workItem from="1564728002192" duration="10875000" />
+      <workItem from="1564749612619" duration="2523000" />
+      <workItem from="1564792958431" duration="8831000" />
+      <workItem from="1564889103126" duration="11979000" />
+      <workItem from="1564921088821" duration="64000" />
+      <workItem from="1564923046977" duration="1327000" />
+      <workItem from="1564967157562" duration="3655000" />
+      <workItem from="1565232551020" duration="7712000" />
+      <workItem from="1565403822010" duration="12693000" />
+      <workItem from="1565440681461" duration="11482000" />
+      <workItem from="1565491057252" duration="4993000" />
+      <workItem from="1565515746136" duration="1400000" />
+      <workItem from="1566027358463" duration="6273000" />
+      <workItem from="1566204013669" duration="3332000" />
+      <workItem from="1566265673931" duration="1400000" />
+      <workItem from="1566294950581" duration="1608000" />
+      <workItem from="1566364714138" duration="1969000" />
+      <workItem from="1566368619689" duration="362000" />
+      <workItem from="1566369208253" duration="6376000" />
+      <workItem from="1566454440054" duration="5207000" />
+      <workItem from="1566615194931" duration="917000" />
+      <workItem from="1566782129248" duration="6229000" />
+      <workItem from="1566823666691" duration="2575000" />
+      <workItem from="1566870744633" duration="1214000" />
+      <workItem from="1566977067326" duration="3702000" />
+      <workItem from="1567044164541" duration="616000" />
+      <workItem from="1567166371983" duration="6353000" />
+      <workItem from="1567351466826" duration="3210000" />
+      <workItem from="1567510634467" duration="3582000" />
+      <workItem from="1567584706252" duration="2795000" />
+      <workItem from="1567603216468" duration="3386000" />
+      <workItem from="1567613247846" duration="38000" />
+      <workItem from="1567653199453" duration="1352000" />
     </task>
+    <task id="LOCAL-00001" summary="后端日志系统，分页插件，dao自动生成器">
+      <created>1564708123661</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1564708123661</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,5 +404,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="后端日志系统，分页插件，dao自动生成器" />
+    <option name="LAST_COMMIT_MESSAGE" value="后端日志系统，分页插件，dao自动生成器" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/leetcode/test/Main3.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

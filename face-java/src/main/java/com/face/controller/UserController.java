@@ -5,9 +5,11 @@ import com.face.service.IUserService;
 import com.face.utils.MD5Utils;
 import com.face.vo.ReturnData;
 import com.face.vo.StatusCode;
+import com.face.vo.UserSessionInfo;
 import com.face.vo.UserVo;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,6 +42,7 @@ public class UserController {
             return new ReturnData(StatusCode.FAILURE, "用户名不存在", "");
         } else {
             if (realUser.getPassword().equals(user.getPassword())) {
+                UserSessionInfo.getUserSessionInfo().setUserVo(user);
                 return new ReturnData(StatusCode.SUCCESS, "登录成功", "");
             } else {
                 return new ReturnData(StatusCode.FAILURE, "用户密码错误", "");
@@ -50,16 +53,22 @@ public class UserController {
 
     @ApiOperation(value = "注册", notes = "数据库新增用户", httpMethod = "POST")
     @RequestMapping("/register")
-    public ReturnData register(@RequestBody UserVo user) {
+    public ReturnData register(@RequestBody UserVo user, HttpServletRequest request) {
         //获得星座
         if (user.getBirthday() != null) {
             user.setConstellation(DateUtils.getConstellation(
-                    DateUtils.string2Date(user.getBirthday(),"yyyy-MM-dd")));
+                    DateUtils.string2Date(user.getBirthday(), "yyyy-MM-dd")));
         }
         user.setPassword(MD5Utils.convert(user.getPassword()));
-        if (userService.addUser(user) >= 0) {
+        user.setIp(request.getRemoteAddr());
+        if (userService.addUser(user) > 0) {
             return new ReturnData(StatusCode.SUCCESS, "添加新用户", "");
         }
-        return new ReturnData(StatusCode.FAILURE,"失败","");
+        return new ReturnData(StatusCode.FAILURE, "失败", "");
+    }
+
+    @RequestMapping("/qryUser")
+    public UserVo qryUser(@RequestBody UserVo userVo) {
+        return userService.qryUser(userVo);
     }
 }

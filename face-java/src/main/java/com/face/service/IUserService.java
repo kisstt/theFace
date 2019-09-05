@@ -1,7 +1,6 @@
 package com.face.service;
 
-
-import com.chat.netty.chat.ChatInfo;
+import com.face.po.UserLoginPo;
 import com.face.vo.UserVo;
 
 public interface IUserService {
@@ -14,5 +13,7 @@ public interface IUserService {
 
     UserVo qryUser(UserVo user);
 
-    int updateUser(UserVo user);
+    int updateUserInfo(UserVo user);
+
+    int updateUserLogin(UserLoginPo userLoginPo);
 }

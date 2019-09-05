@@ -265,6 +265,12 @@
               "chnname": "用户登录ip"
             },
             {
+              "name": "user_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "用户id"
+            },
+            {
               "name": "user_login_device",
               "type": "DefaultString",
               "remark": "",
@@ -364,7 +370,7 @@
             },
             {
               "name": "description",
-              "type": "DefaultString",
+              "type": "MiddleString",
               "remark": "",
               "chnname": "介绍"
             }
@@ -417,6 +423,160 @@
             }
           ],
           "chnname": "12星座表"
+        },
+        {
+          "title": "my_friend",
+          "fields": [
+            {
+              "name": "my_friend_id",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": ""
+            },
+            {
+              "name": "user_id",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": ""
+            },
+            {
+              "name": "my_friend_user_id",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": ""
+            },
+            {
+              "name": "create_time",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": ""
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "我的好友表"
+        },
+        {
+          "title": "friend_req",
+          "fields": [
+            {
+              "name": "created_time",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "from_user_id",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": ""
+            },
+            {
+              "name": "to_user_id",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": ""
+            },
+            {
+              "name": "status",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": ""
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "用户请求表"
         }
       ],
       "graphCanvas": {
@@ -724,7 +884,7 @@
           "fields": [
             {
               "name": "reply_id",
-              "type": "VARCHAR_32",
+              "type": "Integer",
               "chnname": "唯一id",
               "remark": "",
               "pk": true,
@@ -1185,6 +1345,109 @@
       "graphCanvas": {
         "edges": [],
         "nodes": []
+      },
+      "associations": []
+    },
+    {
+      "name": "chat",
+      "chnname": "聊天",
+      "entities": [
+        {
+          "title": "chat_message",
+          "fields": [
+            {
+              "name": "cm_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "自增长id",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "created_time",
+              "type": "DateTime",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "from_user_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "发送方"
+            },
+            {
+              "name": "to_user_id",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "接收方"
+            },
+            {
+              "name": "msg",
+              "type": "LongString",
+              "remark": "",
+              "chnname": "发送消息"
+            },
+            {
+              "name": "sign_flag",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "发送状态"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "聊天表"
+        }
+      ],
+      "graphCanvas": {
+        "nodes": [],
+        "edges": []
       },
       "associations": []
     }

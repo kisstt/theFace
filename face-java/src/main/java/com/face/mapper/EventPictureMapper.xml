@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.collegevol.dao.IEventPictureDao">
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insert"  keyProperty="epId" useGeneratedKeys="true"  parameterType="com.collegevol.po.EventPicturePo">
+		 INSERT INTO event_picture
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="epId != null">
+				 ep_id,
+			</if>
+			<if test="eventId != null">
+				 event_id,
+			</if>
+			<if test="imgUrl != null">
+				 img_url,
+			</if>
+
+		 </trim>
+		 <trim prefix="VALUES (" suffix=")" suffixOverrides="," >
+			<if test="epId !=null">
+				 #{epId},
+			</if>
+			<if test="eventId !=null">
+				 #{eventId},
+			</if>
+			<if test="imgUrl !=null">
+				 #{imgUrl},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改-->
+	<update id="update" parameterType="com.collegevol.po.EventPicturePo">
+		 UPDATE event_picture
+		 <trim prefix="set"  suffixOverrides="," >
+			<if test="eventId != null">
+				 event_id = #{eventId},
+			</if>
+			<if test="imgUrl != null">
+				 img_url = #{imgUrl},
+			</if>
+
+		 </trim>
+		 <where> 
+		 <trim prefixOverrides="and" >
+				 and ep_id = #{epId} 
+		 </trim>
+		 </where> 
+	</update>
+
+	<!-- 查询 -->
+	<select id="list" parameterType="com.collegevol.po.EventPicturePo" resultType="com.collegevol.po.EventPicturePo" >
+		 SELECT
+		 ep_id, event_id, img_url
+		 FROM event_picture
+		<trim prefix="where" prefixOverrides="and" >
+			<if test="epId != null ">
+				 and ep_id = #{epId} 
+			</if>
+			<if test="eventId != null ">
+				 and event_id = #{eventId} 
+			</if>
+			<if test="imgUrl != null and imgUrl != ''">
+				 and img_url = #{imgUrl} 
+			</if>
+
+		</trim>
+	</select>
+	 <!-- 新增的业务请写在下面，防止重新生成后被覆盖-->
+</mapper>
