@@ -37,4 +37,5 @@ public class PushSentencePo implements Serializable {
 	*/
 	private String sentence;
 
+	private Integer tagId;
 }

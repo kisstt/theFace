@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 
 @Controller
-@RequestMapping("/face")
+@RequestMapping("/api/face")
 public class FaceController {
 
     @Resource

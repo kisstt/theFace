@@ -2,7 +2,6 @@ package com.face.config;
 
 import com.face.db.MapperScanner;
 import com.face.db.plugin.SqlPagerInterceptor;
-import com.face.db.plugin.SqlTimeInterceptor;
 import com.face.utils.DataSourceUtils;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -43,13 +42,12 @@ public class DataSourceConfig {
         String typeAliases = "com.face.po";
         SqlPagerInterceptor pagerInterceptor = new SqlPagerInterceptor();
         //日志格式化插件
-        SqlTimeInterceptor timeInterceptor = new SqlTimeInterceptor();
         Properties properties = new Properties();
         properties.setProperty("dialect", jdbcType);
         properties.setProperty("dialectClass", DataSourceUtils.getDialect(jdbcType));
         properties.setProperty("pageSqlId", "ByPage");
         pagerInterceptor.setProperties(properties);
-        Interceptor[] interceptors = new Interceptor[]{pagerInterceptor, timeInterceptor};
+        Interceptor[] interceptors = new Interceptor[]{pagerInterceptor};
         SqlSessionFactoryBean sqlSessionFactoryBean = DataSourceUtils.getSqlSessionFactoryBean(dataSource, interceptors, mapperPath, typeAliases);
         return sqlSessionFactoryBean.getObject();
     }

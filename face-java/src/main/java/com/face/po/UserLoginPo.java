@@ -10,7 +10,7 @@ import lombok.Data;
  *
  * Generator create
  * @author Generator
- * @date 2019-07-30 10:55:17
+ * @date 2019-10-23 14:09:40
  */
 
 @Data
@@ -18,7 +18,7 @@ public class UserLoginPo implements Serializable {
 	/**
 	*主键
 	*/
-	private Long userLoginId;
+	private Integer userLoginId;
 
 	/**
 	*创建时间
@@ -41,5 +41,9 @@ public class UserLoginPo implements Serializable {
 	*用户mac地址
 	*/
 	private String userLoginMac;
+
+	private Integer userId;
+
+	private String userLoginLocation;
 
 }

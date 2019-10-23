@@ -1,4 +1,5 @@
 package com.face.dao;
+import com.face.po.EventTagPo;
 import org.springframework.dao.DataAccessException;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;

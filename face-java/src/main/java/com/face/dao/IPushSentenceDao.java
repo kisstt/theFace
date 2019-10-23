@@ -2,6 +2,8 @@ package com.face.dao;
 
 import com.face.po.PushSentencePo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.dao.DataAccessException;
 
 import java.util.List;
@@ -25,5 +27,11 @@ public interface IPushSentenceDao {
 
     //业务代码请写在下面，防止后续生成被覆盖
 
+
+    @Select("SELECT count(1) FROM `push_sentence` WHERE push_sentence.tag_id=#{pushSentence.tagId}")
+    int countByTagId(@Param("pushSentence") PushSentencePo pushSentence) throws DataAccessException;
+
+    @Select("SELECT p_sentence_id,created_time,push_time,sentence,tag_id FROM `push_sentence` WHERE push_sentence.tag_id=#{pushSentence.tagId} LIMIT 1 OFFSET #{random}")
+    PushSentencePo getRandomSentenceOne(@Param("random") int random,@Param("pushSentence") PushSentencePo pushSentence);
 }
 

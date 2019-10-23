@@ -22,6 +22,12 @@
 			<if test="userLoginMac != null">
 				 user_login_mac,
 			</if>
+			<if test="userId != null">
+				 user_id,
+			</if>
+			<if test="userLoginLocation != null">
+				 user_login_location,
+			</if>
 
 		 </trim>
 		 <trim prefix="VALUES (" suffix=")" suffixOverrides="," >
@@ -39,6 +45,12 @@
 			</if>
 			<if test="userLoginMac !=null">
 				 #{userLoginMac},
+			</if>
+			<if test="userId !=null">
+				 #{userId},
+			</if>
+			<if test="userLoginLocation !=null">
+				 #{userLoginLocation},
 			</if>
 		 </trim>
 	</insert>
@@ -59,6 +71,12 @@
 			<if test="userLoginMac != null">
 				 user_login_mac = #{userLoginMac},
 			</if>
+			<if test="userId != null">
+				 user_id = #{userId},
+			</if>
+			<if test="userLoginLocation != null">
+				 user_login_location = #{userLoginLocation},
+			</if>
 
 		 </trim>
 		 <where> 
@@ -71,7 +89,7 @@
 	<!-- 查询 -->
 	<select id="list" parameterType="com.face.po.UserLoginPo" resultType="com.face.po.UserLoginPo" > 
 		 SELECT
-		 user_login_id, created_time, user_login_ip, user_login_device, user_login_mac
+		 user_login_id, created_time, user_login_ip, user_login_device, user_login_mac, user_id, user_login_location
 		 FROM user_login
 		<trim prefix="where" prefixOverrides="and" >
 			<if test="userLoginId != null ">
@@ -88,6 +106,12 @@
 			</if>
 			<if test="userLoginMac != null and userLoginMac != ''">
 				 and user_login_mac = #{userLoginMac} 
+			</if>
+			<if test="userId != null ">
+				 and user_id = #{userId} 
+			</if>
+			<if test="userLoginLocation != null and userLoginLocation != ''">
+				 and user_login_location = #{userLoginLocation} 
 			</if>
 
 		</trim>

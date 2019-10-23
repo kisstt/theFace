@@ -1,5 +1,6 @@
 package com.face.service.impl;
 
+import com.face.WebConstants;
 import com.face.dao.IUserInfoDao;
 import com.face.dao.IUserLoginDao;
 import com.face.po.UserInfoPo;
@@ -7,10 +8,15 @@ import com.face.po.UserLoginPo;
 import com.face.service.IUserService;
 import com.face.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author FHX
@@ -27,6 +33,9 @@ public class UserServiceImpl implements IUserService {
     @Resource
     private IUserLoginDao userLoginDao;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
     @Override
     public boolean isExistUser(UserVo user) {
         UserVo newUser = this.qryUser(user);
@@ -42,7 +51,24 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public UserVo qryUser(UserVo user) {
-        return (UserVo) userInfoDao.list(user).get(0);
+        UserInfoPo con=new UserInfoPo();
+        con.setNickname(user.getNickname());
+        List<UserInfoPo> list=userInfoDao.list(con);
+        UserVo userVo=new UserVo();
+        if(list.size()!=0){
+            UserInfoPo userInfoPo=list.get(0);
+            userVo.setPassword(userInfoPo.getPassword());
+            userVo.setCreateTime(userInfoPo.getCreateTime());
+            userVo.setNickname(userInfoPo.getNickname());
+            userVo.setBirthday(userInfoPo.getBirthday());
+            userVo.setEmail(userInfoPo.getEmail());
+            userVo.setConstellation(userInfoPo.getConstellation());
+            userVo.setUsername(userInfoPo.getUsername());
+            userVo.setUserId(userInfoPo.getUserId());
+            return userVo;
+        }else {
+            return null;
+        }
     }
 
     @Override
@@ -51,7 +77,7 @@ public class UserServiceImpl implements IUserService {
             userInfoDao.insert(userVo);
             Long userId = userInfoDao.list(userVo).get(0).getUserId();
             UserLoginPo userLoginPo = new UserLoginPo();
-            userLoginPo.setUserLoginId(userId);
+            userLoginPo.setUserId(userId);
             userLoginPo.setCreatedTime(new Date());
             userLoginPo.setUserLoginIp(userVo.getIp());
             userLoginPo.setUserLoginDevice(userVo.getDevice());
@@ -76,4 +102,20 @@ public class UserServiceImpl implements IUserService {
         return userLoginDao.update(userLoginPo);
     }
 
+
+    @Override
+    public void loginRedisOps(UserVo userVo, String sessionId) {
+        redisTemplate.opsForHash().put(WebConstants.USER_REDIS_KEY,sessionId,userVo);
+    }
+
+    @Override
+    public void afterLogin(UserVo userVo, HttpServletRequest req) {
+        UserLoginPo userLoginPo=new UserLoginPo();
+        userLoginPo.setUserId(userVo.getUserId());
+        userLoginPo.setUserLoginMac(userVo.getMac());
+        userLoginPo.setUserLoginDevice(userVo.getDevice());
+        userLoginPo.setUserLoginIp(req.getRemoteAddr());
+        userLoginPo.setCreatedTime(new Date());
+        userLoginDao.insert(userLoginPo);
+    }
 }

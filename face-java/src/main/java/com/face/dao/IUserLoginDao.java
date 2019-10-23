@@ -8,9 +8,10 @@ import com.face.po.UserLoginPo;
  *
  * Generator create
  * @author Generator
- * @date 2019-07-30 10:55:17
+ * @date 2019-10-23 14:09:40
  */
-@Mapper
+
+ @Mapper
 public interface IUserLoginDao { 
 
 	int insert(UserLoginPo userLoginPo) throws DataAccessException;

@@ -16,9 +16,9 @@ import java.util.Map;
 public class BaiduAuthUtils {
     public static String getAuth() {
         // 官网获取的 API Key 更新为你注册的
-        String clientId = BaiduConfig.appKey;
+        String clientId = BaiduConfig.APP_ID;
         // 官网获取的 Secret Key 更新为你注册的
-        String clientSecret = BaiduConfig.appSercetKey;
+        String clientSecret = BaiduConfig.APP_SERCET_KEY;
         return getAuth(clientId, clientSecret);
     }
 

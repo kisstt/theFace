@@ -11,13 +11,13 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:baidu.properties")
 public class BaiduConfig {
 
-    @Value("app.id:")
-    public static String appID;
+    @Value("${app.id:}")
+    public static String APP_ID;
 
-    @Value("api.key:")
-    public static String appKey;
+    @Value("${api.key:}")
+    public static String APP_KEY;
 
-    @Value("api.sercet.key:")
-    public static String appSercetKey;
+    @Value("${api.sercet.key:}")
+    public static String APP_SERCET_KEY;
 
 }
