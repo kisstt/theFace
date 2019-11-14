@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.face.dao.IUserFaceDao">
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insert"  parameterType="com.face.po.UserFacePo">
+		 INSERT INTO user_face
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="userId != null">
+				 user_id,
+			</if>
+			<if test="userFaceLocation != null">
+				 user_face_location,
+			</if>
+			<if test="userFaceDetectResult != null">
+				 user_face_detect_result,
+			</if>
+			<if test="createdTime != null">
+				 created_time,
+			</if>
+
+		 </trim>
+		 <trim prefix="VALUES (" suffix=")" suffixOverrides="," >
+			<if test="userId !=null">
+				 #{userId},
+			</if>
+			<if test="userFaceLocation !=null">
+				 #{userFaceLocation},
+			</if>
+			<if test="userFaceDetectResult !=null">
+				 #{userFaceDetectResult},
+			</if>
+			<if test="createdTime !=null">
+				 #{createdTime},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 查询 -->
+	<select id="list" parameterType="com.face.po.UserFacePo" resultType="com.face.po.UserFacePo" > 
+		 SELECT
+		 user_id, user_face_location, user_face_detect_result, created_time
+		 FROM user_face
+		<trim prefix="where" prefixOverrides="and" >
+			<if test="userId != null ">
+				 and user_id = #{userId} 
+			</if>
+			<if test="userFaceLocation != null and userFaceLocation != ''">
+				 and user_face_location = #{userFaceLocation} 
+			</if>
+			<if test="userFaceDetectResult != null and userFaceDetectResult != ''">
+				 and user_face_detect_result = #{userFaceDetectResult} 
+			</if>
+			<if test="createdTime != null ">
+				 and created_time = #{createdTime} 
+			</if>
+
+		</trim>
+	</select>
+	 <!-- 新增的业务请写在下面，防止重新生成后被覆盖-->
+</mapper>

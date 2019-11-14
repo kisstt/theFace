@@ -19,5 +19,6 @@ public interface TagCode {
     //幽默笑话
     int HUMOROUS_JOKE = 5;
 
+    //个性签名
     int SIGNATURE=6;
 }

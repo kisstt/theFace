@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * @author Generator
  * @date 2019-07-30 10:55:17
  */
-
+@Mapper
 public interface IArticleTagDao { 
 
 	int insert(ArticleTagPo articleTagPo) throws DataAccessException;

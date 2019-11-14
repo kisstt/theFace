@@ -39,9 +39,16 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        
     }
 
+    signingConfigs{
+        release{
+            keyAlias 'sign'
+            keyPassword 'android'
+            storeFile file('key/sign.jks')
+            storePassword 'android'
+        }
+    }
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
@@ -60,5 +67,3 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
-
-

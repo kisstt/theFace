@@ -3,6 +3,7 @@ package com.face.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.annotation.Order;
 
 /**
  * 百度API配置文件
@@ -12,12 +13,12 @@ import org.springframework.context.annotation.PropertySource;
 public class BaiduConfig {
 
     @Value("${app.id:}")
-    public static String APP_ID;
+    public  String APP_ID;
 
     @Value("${api.key:}")
-    public static String APP_KEY;
+    public  String APP_KEY;
 
     @Value("${api.sercet.key:}")
-    public static String APP_SERCET_KEY;
+    public  String APP_SERCET_KEY;
 
 }

@@ -1,101 +1,84 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
+import 'package:face_app/entity/user.dart';
 
-class Http {
-  static Http instance;
-  Dio dio;
-  BaseOptions options;
+class Http{
+  static Dio dio;
 
-  static Http getInstance() {
-    if (instance == null) {
-      instance = new Http();
+  /// default options
+  static const String API_PREFIX = 'http://134.175.100.101:8012';
+  static const int CONNECT_TIMEOUT = 10000;
+  static const int RECEIVE_TIMEOUT = 3000;
+
+  
+  /// http request methods
+  static const String GET = 'get';
+  static const String POST = 'post';
+  static const String PUT = 'put';
+  static const String PATCH = 'patch';
+  static const String DELETE = 'delete';
+
+  static User user;
+  static String userInfoKey;
+  /// 创建 dio 实例对象
+  static Dio createInstance() {
+    if (dio == null) {
+      /// 全局属性：请求前缀、连接超时时间、响应超时时间
+      var options = BaseOptions(
+        connectTimeout: CONNECT_TIMEOUT,
+        receiveTimeout: RECEIVE_TIMEOUT,
+        responseType: ResponseType.plain,
+        validateStatus: (status) {
+          // 不使用http状态码判断状态，使用AdapterInterceptor来处理（适用于标准REST风格）
+          return true;
+        },
+        baseUrl: API_PREFIX,
+      );
+
+      dio = new Dio(options);
     }
-    return instance;
+
+    return dio;
   }
 
-  Http() {
-    options = BaseOptions(
-        baseUrl: "http://127.0.0.1:8015",
-        connectTimeout: 10000,
-        receiveTimeout: 3000,
-        headers: {},
-        contentType: ContentType.json,
-        responseType: ResponseType.json);
-
-    dio = new Dio(options);
-
-    dio.interceptors
-        .add(InterceptorsWrapper(onRequest: (RequestOptions options) {
-      print("请求之前");
-      // Do something before request is sent
-      return options; //continue
-    }, onResponse: (Response response) {
-      print("响应之前");
-      // Do something with response data
-      return response; // continue
-    }, onError: (DioError e) {
-      print("错误之前");
-      // Do something with response error
-      return e; //continue
-    }));
+  static clear() {
+    dio = null;
   }
 
-  /**
-   * 取消请求
-   */
-  void cancelRequests(CancelToken token) {
-    token.cancel("cancelled");
-  }
+  /// request method
+  static request (
+    String url, 
+    { data, method }) async {
 
-  get(url, {data, options, cancelToken}) async {
+    data = data ?? {};
+    method = method ?? 'GET';
+
+    /// restful 请求处理   
+    /// /gysw/search/hist/:user_id        user_id=27
+    /// 最终生成 url 为     /gysw/search/hist/27
+    // data.forEach((key, value) {
+    //   if (url.indexOf(key) != -1) {
+    //     url = url.replaceAll(':$key', value.toString());
+    //   }
+    // });
+    /// 打印请求相关信息：请求地址、请求方式、请求参数
+    print('请求地址：【' + method + '  ' + url + '】');
+    print('请求参数：' + data.toString());
+    Dio dio = createInstance();
+    var result;
     Response response;
+    print(userInfoKey);
     try {
-      response = await dio.get(url,
-          queryParameters: data, options: options, cancelToken: cancelToken);
+      response= await dio.request(url, data: data, options: new Options(method: method,
+      headers: {
+        'USER_INFO_KEY':userInfoKey!=null?'sessionId=$userInfoKey':''
+      }));
+      // result = response.data;
+      // print(result);
+      /// 打印响应相关信息
     } on DioError catch (e) {
-      formatError(e);
+      /// 打印请求失败相关信息
+      print('请求出错：' + e.toString());
     }
     return response;
-  }
-
-  post(url, {data, options, cancelToken}) async {
-    Response response;
-    try {
-      response = await dio.post(
-        url,
-        data: data,
-        cancelToken: cancelToken,
-      );
-    } on DioError catch (e) {
-      if (CancelToken.isCancel(e)) {
-        print('post请求取消 ' + e.message);
-      }
-      print('post请求发生错误:$e');
-      formatError(e);
-    }
-    return response.data;
-  }
-
-  void formatError(DioError e) {
-    if (e.type == DioErrorType.CONNECT_TIMEOUT) {
-      // It occurs when url is opened timeout.
-      print("连接超时");
-    } else if (e.type == DioErrorType.SEND_TIMEOUT) {
-      // It occurs when url is sent timeout.
-      print("请求超时");
-    } else if (e.type == DioErrorType.RECEIVE_TIMEOUT) {
-      //It occurs when receiving timeout
-      print("响应超时");
-    } else if (e.type == DioErrorType.RESPONSE) {
-      // When the server response, but with a incorrect status, such as 404, 503...
-      print("出现异常");
-    } else if (e.type == DioErrorType.CANCEL) {
-      // When the request is cancelled, dio will throw a error with this type.
-      print("请求取消");
-    } else {
-      //DEFAULT Default error type, Some other Error. In this case, you can read the DioError.error if it is not null.
-      print("未知错误");
-    }
   }
 }

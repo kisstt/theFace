@@ -2,8 +2,6 @@ package com.face.controller;
 
 import com.face.po.PushSentencePo;
 import com.face.service.impl.PushSentenceServiceImpl;
-import com.face.vo.UserSessionInfo;
-import com.face.vo.UserVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

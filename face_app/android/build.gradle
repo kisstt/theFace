@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        maven { url 'https://maven.aliyun.com/repository/google' }
+       maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
     }
@@ -15,7 +15,7 @@ allprojects {
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
-    }
+   }
 }
 
 rootProject.buildDir = '../build'
@@ -29,5 +29,3 @@ subprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Stack;
 
 @RestController
 @RequestMapping("/api/star")
@@ -19,6 +20,11 @@ public class StarController {
     @RequestMapping("/starList")
     public Page starList(@RequestBody Page page) {
         return starService.qryStarByPage(page, new StarPo());
+    }
+
+    @RequestMapping("/find")
+    public StarPo starList(@RequestBody StarPo starPo) {
+        return starService.list(starPo).get(0);
     }
 
 }

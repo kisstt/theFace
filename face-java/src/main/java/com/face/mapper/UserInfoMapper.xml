@@ -108,10 +108,7 @@
 		 </trim>
 		 <where> 
 		 <trim prefixOverrides="and" >
-				 and user_id = #{userId} 
-				 and nickname = #{nickname} 
-				 and email = #{email} 
-				 and tele = #{tele} 
+				 and user_id = #{userId}
 		 </trim>
 		 </where> 
 	</update>
@@ -156,5 +153,4 @@
 		</trim>
 	</select>
 	 <!-- 新增的业务请写在下面，防止重新生成后被覆盖-->
-
 </mapper>

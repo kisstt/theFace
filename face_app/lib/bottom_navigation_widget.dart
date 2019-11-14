@@ -12,7 +12,7 @@ class ButtomNavigationWidget extends StatefulWidget {
 
 class _ButtomNavigationWidgetState extends State<ButtomNavigationWidget> {
   final _ButtomNavigationColor=Colors.red;
-  int _currentIndex=0;
+  int _currentIndex=2;
   List<Widget> list=List();
 
   @override

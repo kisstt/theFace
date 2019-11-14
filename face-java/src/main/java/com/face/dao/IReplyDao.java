@@ -9,10 +9,10 @@ import org.springframework.stereotype.Repository;
  *
  * Generator create
  * @author Generator
- * @date 2019-07-30 11:02:01
+ * @date 2019-10-27 21:36:58
  */
 
-@Mapper
+ @Mapper
 public interface IReplyDao { 
 
 	int insert(ReplyPo replyPo) throws DataAccessException;

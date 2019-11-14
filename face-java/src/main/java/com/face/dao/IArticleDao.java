@@ -1,4 +1,6 @@
 package com.face.dao;
+import com.face.page.Page;
+import com.face.vo.ArticleUserVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.dao.DataAccessException;
 import java.util.List;
@@ -9,9 +11,10 @@ import org.springframework.stereotype.Repository;
  *
  * Generator create
  * @author Generator
- * @date 2019-07-29 16:59:49
+ * @date 2019-10-27 21:36:58
  */
-@Mapper
+
+ @Mapper
 public interface IArticleDao { 
 
 	int insert(ArticlePo articlePo) throws DataAccessException;
@@ -21,5 +24,6 @@ public interface IArticleDao {
 	List<ArticlePo>  list(ArticlePo articlePo) throws DataAccessException;
 
 	//业务代码请写在下面，防止后续生成被覆盖
-
+	List<ArticleUserVo> qryArticleUserVo4Page(ArticlePo articleUserVo);
 }
+

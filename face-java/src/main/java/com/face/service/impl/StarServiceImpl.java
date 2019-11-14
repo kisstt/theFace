@@ -23,7 +23,7 @@ public class StarServiceImpl implements IStarService {
 
     @Override
     public List<StarPo> list(StarPo starPo) {
-        return null;
+        return starDao.list(starPo);
     }
 
     @Override

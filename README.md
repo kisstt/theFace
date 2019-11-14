@@ -1,4 +1,4 @@
-# theFace（未完成）
+# theFace(完成)
 基于flutter和SpringBoot的App，相面，人脸算命应用
 
 ### 一、项目说明
@@ -7,15 +7,14 @@
 
 采用C/S架构
 
-（1）后端框架 
+（1）后端技术 
 
-springBoot
+springBoot 
+ORM框架Mybatis   MySQL
+redis  
 
-Mybatis  逆向工程
-
-（2）移动前端框架 
-
-Flutter
+（2）移动前端技术
+Flutter  dio
 
 
 
@@ -39,15 +38,7 @@ Flutter
 
 
 
-### 三、接口说明
 
-基础url:  http://localhost:8015
-
-| 接口路径 | 传递                | 返回         |
-| -------- | ------------------- | ------------ |
-| /login   | {nickname,password} | {status,msg} |
-|          |                     |              |
-|          |                     |              |
 
 
 

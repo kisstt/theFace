@@ -1,8 +1,11 @@
 package com.face.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.face.WebConstants;
+import com.face.dao.IUserFollowDao;
 import com.face.dao.IUserInfoDao;
 import com.face.dao.IUserLoginDao;
+import com.face.po.UserFollowPo;
 import com.face.po.UserInfoPo;
 import com.face.po.UserLoginPo;
 import com.face.service.IUserService;
@@ -10,7 +13,6 @@ import com.face.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -29,12 +31,14 @@ public class UserServiceImpl implements IUserService {
     @Resource
     private IUserInfoDao userInfoDao;
 
-
     @Resource
     private IUserLoginDao userLoginDao;
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    @Resource
+    private IUserFollowDao userFollowDao;
 
     @Override
     public boolean isExistUser(UserVo user) {
@@ -46,17 +50,55 @@ public class UserServiceImpl implements IUserService {
     public UserVo findUserByNickname(String nickname) {
         UserInfoPo userInfoPo = new UserInfoPo();
         userInfoPo.setNickname(nickname);
-        return (UserVo) userInfoDao.list(userInfoPo).get(0);
+        UserInfoPo userInfoPo1=
+                userInfoDao.list(userInfoPo).get(0);
+        UserVo userVo=new UserVo();
+        userVo.setUserId(userInfoPo1.getUserId());
+        userVo.setNickname(userInfoPo1.getNickname());
+        userVo.setBirthday(userInfoPo1.getBirthday());
+        userVo.setConstellation(userInfoPo1.getConstellation());
+        userVo.setCreateTime(userInfoPo1.getCreateTime());
+        userVo.setPassword(userInfoPo1.getPassword());
+        return userVo;
     }
 
     @Override
     public UserVo qryUser(UserVo user) {
-        UserInfoPo con=new UserInfoPo();
+        UserInfoPo con = new UserInfoPo();
         con.setNickname(user.getNickname());
-        List<UserInfoPo> list=userInfoDao.list(con);
-        UserVo userVo=new UserVo();
-        if(list.size()!=0){
-            UserInfoPo userInfoPo=list.get(0);
+        List<UserInfoPo> list = userInfoDao.list(con);
+        UserVo userVo = new UserVo();
+        if (list.size() != 0) {
+            UserInfoPo userInfoPo = list.get(0);
+            userVo.setCreateTime(userInfoPo.getCreateTime());
+            userVo.setPassword(userInfoPo.getPassword());
+            userVo.setNickname(userInfoPo.getNickname());
+            userVo.setBirthday(userInfoPo.getBirthday());
+            userVo.setEmail(userInfoPo.getEmail());
+            userVo.setTele(user.getTele());
+            userVo.setConstellation(userInfoPo.getConstellation());
+            userVo.setUsername(userInfoPo.getUsername());
+            userVo.setUserId(userInfoPo.getUserId());
+            userVo.setAvatarUrl(userInfoPo.getAvatarUrl());
+            return userVo;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public int update(UserVo userVo) {
+        return userInfoDao.update(userVo);
+    }
+
+    @Override
+    public UserVo qryUserByUserId(UserVo user) {
+        UserInfoPo con = new UserInfoPo();
+        con.setUserId(user.getUserId());
+        List<UserInfoPo> list = userInfoDao.list(con);
+        UserVo userVo = new UserVo();
+        if (list.size() != 0) {
+            UserInfoPo userInfoPo = list.get(0);
             userVo.setPassword(userInfoPo.getPassword());
             userVo.setCreateTime(userInfoPo.getCreateTime());
             userVo.setNickname(userInfoPo.getNickname());
@@ -65,17 +107,39 @@ public class UserServiceImpl implements IUserService {
             userVo.setConstellation(userInfoPo.getConstellation());
             userVo.setUsername(userInfoPo.getUsername());
             userVo.setUserId(userInfoPo.getUserId());
+            userVo.setAvatarUrl(userInfoPo.getAvatarUrl());
+            userVo.setTele(userInfoPo.getTele());
             return userVo;
-        }else {
+        } else {
             return null;
         }
     }
 
     @Override
+    public void addFollow(UserFollowPo userFollowPo) {
+        List<UserFollowPo> list = userFollowDao.list(userFollowPo);
+        if (list.size() == 0) {
+            userFollowPo.setCreatedTime(new Date());
+            userFollowDao.insert(userFollowPo);
+        } else {
+            delFollow(userFollowPo);
+        }
+    }
+
+
+    public void delFollow(UserFollowPo userFollowPo) {
+        userFollowDao.delete(userFollowPo);
+    }
+
+    @Override
     public int addUser(UserVo userVo) {
         try {
+            int randomNum=(int)(Math.random()*10)%4+1;
+            userVo.setAvatarUrl("http://134.175.100.101:8012/images/avator/touxiang"+randomNum+".jpg");
             userInfoDao.insert(userVo);
-            Long userId = userInfoDao.list(userVo).get(0).getUserId();
+            UserVo con = new UserVo();
+            con.setNickname(userVo.getNickname());
+            Long userId = userInfoDao.list(con).get(0).getUserId();
             UserLoginPo userLoginPo = new UserLoginPo();
             userLoginPo.setUserId(userId);
             userLoginPo.setCreatedTime(new Date());
@@ -105,12 +169,13 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public void loginRedisOps(UserVo userVo, String sessionId) {
-        redisTemplate.opsForHash().put(WebConstants.USER_REDIS_KEY,sessionId,userVo);
+        String value = JSON.toJSONString(userVo);
+        redisTemplate.opsForHash().put(WebConstants.USER_REDIS_KEY, sessionId, value);
     }
 
     @Override
     public void afterLogin(UserVo userVo, HttpServletRequest req) {
-        UserLoginPo userLoginPo=new UserLoginPo();
+        UserLoginPo userLoginPo = new UserLoginPo();
         userLoginPo.setUserId(userVo.getUserId());
         userLoginPo.setUserLoginMac(userVo.getMac());
         userLoginPo.setUserLoginDevice(userVo.getDevice());
