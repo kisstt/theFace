@@ -132,7 +132,7 @@
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-            <version>4.1.32.Final</version>
+            <version>${netty.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.protobuf</groupId>
@@ -149,6 +149,11 @@
             <artifactId>commons-io</artifactId>
             <version>${commons.io.version}</version>
         </dependency>
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>0.4.8</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -161,6 +166,7 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -177,43 +183,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.2</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>${mysql.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.mybatis.generator</groupId>
-                        <artifactId>mybatis-generator-core</artifactId>
-                        <version>1.3.2</version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <id>Generate MyBatis Artifacts</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!--允许移动生成的文件 -->
-                    <verbose>true</verbose>
-                    <!-- 是否覆盖 -->
-                    <overwrite>true</overwrite>
-                    <!-- 自动生成的配置 -->
-                    <configurationFile>
-                        config/mybatis-generator.xml
-                    </configurationFile>
-                </configuration>
-            </plugin>
         </plugins>
         <resources>
             <resource>
@@ -221,7 +190,7 @@
                 <includes>
                     <include>**/*.xml</include>
                 </includes>
-                <filtering>false</filtering>
+                <!--                <filtering>false</filtering>-->
             </resource>
             <resource>
                 <directory>config</directory>
@@ -231,18 +200,4 @@
             </resource>
         </resources>
     </build>
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 </project>
